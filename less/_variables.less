@@ -1,0 +1,35 @@
+// Colors
+@back:       #e9ebed; //rgb(231,231,231); 
+@high:       #E3242A; 
+@linkhigh:   #008fd5; //#3FA9F5; 
+@dark:       #32373d; //rgb(46,54,57);
+@light:      white;
+@gray:       darken(@lgray, 5%);
+@lgray:      rgb(231,231,231); 
+@highlight:  #cbeefa;
+
+// Google Fonts
+//@import url(http://fonts.googleapis.com/css?family=Droid+Serif:700,700italic);
+//@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300);
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic,300,300italic,600,600italic);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic);
+
+.sans       { font-family: 'Source Sans Pro', 'Open Sans', sans-serif; }
+.sans-alt   { font-family: 'Titillium Web', 'Source Sans Pro', sans-serif; }
+.serif      { font-family: 'Lora', serif; }
+.logotype   { .sans-alt; font-weight: bold; color: @high; }
+
+// Responsive breakpoints
+@break-desktop: ~"screen and (min-width: 70em)";
+@break-tablet: ~"screen and (min-width: 48em)";
+
+// Mixins
+/* Micro ClearFix Mixin */
+.clearfix{
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after{ clear: both; }
+}
+
+.shade { box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.20); }

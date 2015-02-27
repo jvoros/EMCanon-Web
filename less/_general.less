@@ -1,0 +1,110 @@
+// GENERAL STYLES
+// borrowed heavily from Bootstrap Scaffolding
+
+// Reset the box-sizing
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Body reset
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  .sans;
+  color: black;
+  font-size: 1em;
+  line-height: 1.4em;
+  background-color: @lgray;
+}
+
+p {
+  margin: 1.25em 0;
+}
+
+// Links
+a {
+  color: @linkhigh;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+}
+
+// Headers
+h1, h2, h3, h4 {
+  clear: both;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.25em;
+  margin: 0.25em 0;
+}
+
+h2 {
+  .sans;
+  color: @high;
+  font-size: 1.12em;
+  font-weight: 400;
+  margin: 1em 0;
+}
+
+h2.sep {
+  background: @high;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: @light;
+  margin: 0;
+  padding: 0.25em;
+}
+
+@media @break-tablet {
+  h2.sep { 
+    margin: 1em 0;
+    padding: 0.5em 1em;
+  }  
+}
+
+// Images
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-responsive {
+  display: block;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  max-height: 100%;
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+// Lists reset
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// Forms reset
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Horizontal rules
+
+//hr {
+//  margin-top:    @line-height-computed;
+//  margin-bottom: @line-height-computed;
+//  border: 0;
+//  border-top: 1px solid @hr-border;
+//}

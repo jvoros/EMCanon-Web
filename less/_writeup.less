@@ -1,0 +1,161 @@
+.writeup {
+  overflow: auto;
+  margin: 0 0 1em 0;
+  padding: 0.5em;
+  background: @light;
+  .shade;
+  
+  &:last-of-type {
+    margin-bottom: 3em;
+  }
+}
+
+.tags li {
+  display: inline;
+  margin-right: 0.6em;
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: @high;
+  a {
+    color: @high;
+  }
+}
+
+.masthead {
+  .sans;
+  line-height: 1.5em;
+  padding: 0 0 0.5em 0;
+  overflow: auto;
+  
+  h1 {
+    .serif;
+    font-size: 1.75em;
+    font-weight: 700;
+    
+    a {
+      color: black;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }  
+    }
+  }
+}
+
+.meta {
+  li { 
+    display: inline; 
+    padding: 0 0.75em; 
+    border-right: 3px solid @back;
+  }
+  
+  li:first-of-type {
+    padding-left: 0;
+  }
+  
+  li:last-of-type {
+    border-right: 0;
+  }
+}
+
+.excerpt {
+  padding: 0.5em 0;
+  border-top: 0.5em solid @back;
+  line-height: 1.5em;
+  p {
+    margin: 0;
+  }
+}
+
+
+// SINGLE PAGE STYLES
+.review {
+  color: @dark;
+  .serif;
+
+  .writeup {
+    padding: 0;
+  }
+  
+  .masthead {
+    padding: 1em;
+    border-bottom: 1em solid @back;
+  }
+  
+  h2 {
+    background-color: @back;
+    margin: 1em;
+    padding: 0.5em;
+    color: black;
+  }
+  
+  p {
+    padding: 0 1.5em;
+  }
+  
+  ol {
+    margin: 1em 1.5em;
+  }
+  
+}
+
+.byline {
+  .sans;
+  background: @gray;
+  color: @dark;
+  padding: 0.5em 1.5em;
+  margin: 2em 0 0 0;
+  
+  li {
+    display: inline;
+    padding: 0 0.75em;
+    border-right: 0.25em solid @dark;
+  }
+  
+  li:first-of-type {
+    padding-left: 0;
+  }
+  
+  li:last-of-type {
+    border-right: 0;
+  }
+}
+
+.references {
+  background-color: @dark;
+  color: @lgray;
+  padding: 1.5em;
+  font-size: 0.8em;
+  .sans;
+  margin: 0;
+  
+  h3 {
+    margin: 0;
+  }
+}
+
+
+// RESPONSIVE STYLES
+@media @break-tablet {
+  .writeup {
+    padding: 1em;
+  }
+  
+  .meta {
+    float: left;
+  }
+  
+
+}
+
+@media @break-desktop {
+  .writeup {
+    width: 100%;
+    &:nth-child(even) {
+      clear: left;
+    }
+  }
+}

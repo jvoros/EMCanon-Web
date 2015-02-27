@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  
+  padding: 0.5em 1em;
+  margin: 0.5em 0.5em;
+  
+  background-color: @back;
+  border: 0px solid @linkhigh;
+  
+  color: @dark;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    text-decoration: none;
+    background-color: @gray;
+//    color: @lgray;
+  }
+  
+  &:first-of-type {
+    margin-left: 0;
+  }
+  
+}

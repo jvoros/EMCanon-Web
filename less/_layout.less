@@ -1,0 +1,111 @@
+@header-height: 4em;
+@menu-width: 12em;
+@menu-width-wide: 15em;
+
+html, body {
+  overflow-x: hidden;
+}
+
+#wrap, #content, #header, #menu {
+  transition: all 0.2s ease;
+}
+
+#wrap {
+  position: relative;
+  padding: 0;
+  background: @back;
+}
+
+#wrap.active {
+  left: @menu-width;
+}
+
+#wrap.active #menu {
+  left: @menu-width;
+}
+
+#menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: @menu-width;
+  margin-left: -@menu-width;
+  min-height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#content {
+  position: relative;
+  margin-top: @header-height;
+  z-index: 100;
+  box-shadow: -30px -@header-height 30px 0px rgba(0,0,0,0.5);
+}
+
+#sidebar {
+  width: 100%;
+  padding: 0 1em;
+}
+
+
+//TABLET RESPONSIVE
+@media @break-tablet {
+  #wrap {
+    width: 100%;
+    padding-left: calc(@menu-width + 1em);
+  }
+  
+  #wrap.active {
+    left: 0;
+  }
+  
+  #wrap.active #menu {
+    left: @menu-width;
+  }
+  
+  #content { 
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 0 0 0;
+    z-index: 0;
+    padding: 0 1em;
+  }
+  
+  #menu {
+    left: @menu-width;
+  }
+}
+
+// DESKTOP RESPONSIVE
+@media @break-desktop {
+//  #wrap {
+//    padding-left: calc(@menu-width-wide + 2em);
+//  }
+//  
+//  #wrap.active #menu {
+//    left: @menu-width-wide;
+//  }
+  
+  #content {
+    max-width: 60em;
+    width: 65%;
+    float: left;
+    margin-left: 1em;
+  }
+  
+  #sidebar {
+    width: 23%;
+    float: left;
+    margin: 0 0 0 1em;
+    padding: 0;
+  }
+  
+//  #menu {
+//    left: @menu-width-wide;
+//    width: @menu-width-wide;
+//    margin-left: -@menu-width-wide;
+//    font-size: 1.25em;
+//  }
+}

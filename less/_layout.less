@@ -1,6 +1,5 @@
 @header-height: 4em;
-@menu-width: 12em;
-@menu-width-wide: 15em;
+@slidemenu-width: 12em;
 
 html, body {
   overflow-x: hidden;
@@ -14,34 +13,46 @@ html, body {
   position: relative;
   padding: 0;
   background: @back;
+  min-height: 100%;
 }
 
 #wrap.active {
-  left: @menu-width;
+  left: @slidemenu-width;
 }
 
 #wrap.active #menu {
-  left: @menu-width;
+  left: @slidemenu-width;
+}
+
+#content-wrap {
+  background-color: @back;
+  z-index: 10;
+  overflow: auto;
+  box-shadow: -30px -@header-height 30px 0px rgba(0,0,0,0.5);
+}
+
+.container {
+  width: 100%;
 }
 
 #menu {
   position: fixed;
-  z-index: 10;
+  z-index: -10;
   top: 0;
   left: 0;
   bottom: 0;
-  width: @menu-width;
-  margin-left: -@menu-width;
   min-height: 100%;
+  width: @slidemenu-width;
+  margin-left: -@slidemenu-width;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+
 }
 
 #content {
   position: relative;
   margin-top: @header-height;
-  z-index: 100;
-  box-shadow: -30px -@header-height 30px 0px rgba(0,0,0,0.5);
+  
 }
 
 #sidebar {
@@ -54,58 +65,54 @@ html, body {
 @media @break-tablet {
   #wrap {
     width: 100%;
-    padding-left: calc(@menu-width + 1em);
   }
   
-  #wrap.active {
+  #menu {
+    position: relative;
+    z-index: 10;
+    top: 0;
     left: 0;
+    min-height: 0;
+    width: 100%;
+    margin-left: 0;
+    display: block;
+    overflow-y: visible;
   }
   
-  #wrap.active #menu {
-    left: @menu-width;
+  #content-wrap {
+    z-index: 0;
+    box-shadow: 0 0 0 0;
   }
   
   #content { 
     margin: 0;
-    width: 100%;
-    box-shadow: 0 0 0 0;
-    z-index: 0;
     padding: 0 1em;
   }
-  
-  #menu {
-    left: @menu-width;
-  }
+
 }
 
 // DESKTOP RESPONSIVE
 @media @break-desktop {
-//  #wrap {
-//    padding-left: calc(@menu-width-wide + 2em);
-//  }
-//  
-//  #wrap.active #menu {
-//    left: @menu-width-wide;
-//  }
+
+  @sidebar-width: 18em;
+  
+  .container {
+    max-width: 74em;
+    margin: 0 auto;
+    padding: 0 0.5em;
+  }
   
   #content {
-    max-width: 60em;
-    width: 65%;
     float: left;
-    margin-left: 1em;
+    margin-right: @sidebar-width;
+    padding: 0 2em 0 0;
   }
   
   #sidebar {
-    width: 23%;
-    float: left;
-    margin: 0 0 0 1em;
+    width: @sidebar-width;
+    float: right;
+    margin-left: -@sidebar-width;
     padding: 0;
   }
   
-//  #menu {
-//    left: @menu-width-wide;
-//    width: @menu-width-wide;
-//    margin-left: -@menu-width-wide;
-//    font-size: 1.25em;
-//  }
 }

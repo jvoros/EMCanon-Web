@@ -6,11 +6,7 @@ $(document).ready(function(){
   }
   
   $('#menu-toggle, #menu a').on('click', function(){
-    var rem = getEmPixels();
-    var windowSize = $(window).width();
-    if (windowSize < rem*48) {
       menuToggle();
-    } 
   });
 
   // http://css-tricks.com/snippets/jquery/smooth-scrolling/ 

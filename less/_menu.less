@@ -4,7 +4,7 @@
   .sans-alt;
   font-size: 1.1em;
   color: @linkhigh;
-  text-align: center;
+  text-align: left;
   
   a {
     color: @lgray;
@@ -20,57 +20,75 @@
     background-color: @high;
   }
   
-  ul {
-    list-style-type: none;
-    margin: 0;
-    
   }
-  
-  li {
-    margin: 0;
-    padding: 0.25em 0;
-    border-bottom: 2px solid darken(@dark, 5%);
-    text-transform: uppercase;
-    
-    &:last-of-type {
-      border: 0;
-    }
-  }
+
+#canon-toggle {
+  display: none;
 }
 
+#dropmenu {
+  list-style-type: none;
+  margin: 0;
+
+}
+
+#dropmenu li {
+  margin: 0;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+  border-bottom: 3px solid darken(@dark, 5%);
+  &:last-of-type {
+    border: 0;
+  }
+}
 #menu-logo {
   display: none;
-  width: 95%;
-  margin: 0 auto;
+  height: 2.5em;
 }
 
-.tagline {
-  background: darken(@dark, 5%);
-  margin: 0;
-  padding: 1em;
-  color: @lgray;
-  line-height: 1.5em;
-  text-align: left;
-}
 
 @media @break-tablet {
   
-  #menu-logo {
+  #menu {
+    height: 4.5em;
+  }
+  
+  #canon-toggle {
     display: block;
   }
   
-  #menu ul {
-    margin: 1em 0 2em 0;
+  #menu-logo {
+    float: left;
+    display: inline;
+    margin-right: 2em;
   }
   
-  #menu li {
-    margin: 0;
-    padding: 0.75em 0;
-    border-bottom: 0.5em solid darken(@dark, 5%);
+  #canon-menu {
+    float: left;
+    position: relative;
+    z-index: 10;
+    
   }
   
-  #homelink {
+  #canon-toggle {
+    display: block;
+    background: lighten(@dark, 5%);
+    padding: 0.5em 1em;
+  }
+  
+  #dropmenu {
     display: none;
+    background: @dark;
+    z-index: 10;
+    position: absolute;
+    padding: 1em;
+    transition: all 0.2s ease;
+  }
+  
+  #canon-menu:hover, #canon-menu:focus, #canon-menu:active {
+    #dropmenu {
+      display: block;
+    }
   }
   
 }

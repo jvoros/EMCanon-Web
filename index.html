@@ -21,17 +21,18 @@
   <body>    
     
     <div id="wrap">
-      
+
       <nav id="menu">
         <a href="index.html"><img id="menu-logo" src="img/logo-white.svg" /></a>
-        <ul id="spymenu">
-          <li id="homelink"><a href="#">HOME</a></li>
-          <li><a href="#latest">LATEST</a></li>
-          <li><a href="#cardiology">CARDIOLOGY</a></li>
-          <li><a href="#pulmonology">PULMONOLOGY</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>
-        <div class="tagline">A collection of the most important <br>papers in <br><strong>Emergency Medicine</strong></div>
+        <div id="canon-menu"><a id="canon-toggle">THE CANON&nbsp;&nbsp;&nbsp;▼</a>
+          <ul id="dropmenu">
+            <li><a href="#latest">LATEST</a></li>
+            <li><a href="#cardiology">CARDIOLOGY</a></li>
+            <li><a href="#pulmonology">PULMONOLOGY</a></li>
+            <li><a href="#pulmonology">INFECTIOUS DISEASE</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
       </nav>
 
       <div id="header">
@@ -39,7 +40,9 @@
         <img src="img/logo-white.svg" alt="EMCanon" />
       </div>
       
-      <div id="content">  
+      <div id="content-wrap" class="container">
+        
+        <div id="content">  
 
       
 
@@ -218,9 +221,8 @@
 </div>
 
 
-      </div><!-- end .content div -->
-
-      <div id="sidebar">
+        </div><!-- end .content div -->
+        <div id="sidebar">
   <h2 class="sep">GET INVOLVED</h2>
   <p>Do you love evidenced-based medicine as much as we do? Are you interested in writing a review? Contact us.</p>
   
@@ -232,6 +234,7 @@
   </ul>
   
 </div>
+      </div><!-- end .container -->
     </div><!-- end #wrap div -->
 
     <script type="text/javascript" src="js/jquery.js"></script>

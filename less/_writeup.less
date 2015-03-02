@@ -1,4 +1,4 @@
-.writeup {
+.card {
   overflow: auto;
   margin: 0 0 1em 0;
   padding: 0.5em;
@@ -8,6 +8,10 @@
   &:last-of-type {
     margin-bottom: 3em;
   }
+}
+
+.writeup, .blog {
+  .card;
 }
 
 .tags li {
@@ -70,6 +74,18 @@
   }
 }
 
+#blog, #latest {
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+#blog {
+
+  h1 a {
+    color: black;
+  }
+}
 
 // SINGLE PAGE STYLES
 .review {
@@ -139,7 +155,8 @@
 
 // RESPONSIVE STYLES
 @media @break-tablet {
-  .writeup {
+  
+  .card, .writeup, .blog {
     padding: 1em;
   }
   

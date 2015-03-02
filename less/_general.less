@@ -58,7 +58,7 @@ h2 {
   margin: 1em 0;
 }
 
-h2.sep {
+.sep {
   background: @high;
   font-weight: 400;
   text-transform: uppercase;
@@ -67,11 +67,20 @@ h2.sep {
   padding: 0.25em;
 }
 
+.sep-light {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0.5em 1em;
+  background-color: @gray;
+  color: @dark;
+}
+
 @media @break-tablet {
-  h2.sep { 
+  .sep, .sep-light { 
     margin: 1em 0;
     padding: 0.5em 1em;
   }  
+  
 }
 
 // Images

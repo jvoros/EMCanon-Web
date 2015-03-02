@@ -1,8 +1,9 @@
 $(document).ready(function(){
   
   function menuToggle() {
-    $('#wrap').toggleClass('active');
-    $('#header').toggleClass('active');
+    console.log('menuToggle triggered');
+    //$('#canon-menu').slideToggle();
+    $('#canon-menu').toggleClass('active');
   }
   
   $('#menu-toggle, #menu a').on('click', function(){

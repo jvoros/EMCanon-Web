@@ -1,51 +1,34 @@
-@logo-height: 3em;
-
 #header {
-  text-align: center;
-  position: fixed; 
-  z-index: 1000;
-  width: 100%;
-  height: @header-height;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0.5em;
-  
+  padding: 1em;
   background: @dark;
-  color: @light;
-  
-  i {
-    float: left;
-    margin-top: 0.25em;
-    font-size: 2em;
-  }
+  color: @linkhigh;
+  text-align: left;
   
   a {
-    color: @light;
-    &:hover {
-      color: @light;
-    }
+    color: @lgray;
+    font-weight: 700;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: @high;
   }
   
-  img {
-    height: @logo-height;
-  }
 }
 
-#header.active {
-  left: @slidemenu-width
+#header-logo {
+  height: 2.5em;
 }
 
-@media @break-tablet {
-  #header {
-    display: none;
-  }
-  
-  #header.active {
-    transform: none;
-  }
-  
+#menu-toggle {
+  float: right;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+}
+
+@media @break-desktop {
   #menu-toggle {
     display: none;
   }
+  
 }

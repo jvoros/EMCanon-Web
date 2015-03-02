@@ -1,8 +1,4 @@
 #sidebar {
-  .sep {
-    background-color: @gray;
-    color: @dark;
-  }
   
   p {
     padding: 0 0.5em;
@@ -20,7 +16,86 @@
     border-bottom: 0.5em solid @gray;
   }
   
+  li:last-of-type {
+    border: 0;
+  }
+  
   li a {
     color: @dark;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+}
+
+#canon-menu {
+  
+  background: @dark;
+  padding: 1em;
+  
+  h2 {
+    display: none;
+    color: @back;
+    background-color: @dark;
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    
+  }
+  
+  ul {
+    overflow: auto;
+    padding: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  li {
+    list-style: none;
+    width: 9em;
+    float: left;
+    padding: 0.25em 0;
+    margin: 0;
+    border: 0;
+  }
+  
+  li:nth-child(even) {
+    
+  }
+  
+  li a {
+    line-height: 1em;
+    display: block;
+    background-color: @gray;
+    color: @dark;
+    padding: 0.75em 0.5em;
+    margin: 0 0.25em;
+    font-weight: 700;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      color: @high;
+      background-color: white;
+    }
+  }
+
+}
+
+@media @break-desktop {
+  
+  #canon-menu { 
+    position: relative;
+    top: 0;
+    left: 0;
+    
+    padding: 0;
+    background-color: @back;
+    
+    h2 {
+      display: block;
+    }
+    
+    ul {
+      margin-bottom: 2em;
+    }
   }
 }

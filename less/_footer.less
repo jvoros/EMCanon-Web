@@ -1,8 +1,42 @@
 #footer {
   width: 100%;
+  margin-top: 2em;
   background-color: @gray;
+  color: @dark;
+  text-align: center;
+  overflow: auto;
+  
+  h2 {
+    text-transform: uppercase;
+    color: @dark;
+    font-weight: 700;
+  }
 }
 
 #footer-wrap {
   padding: 1em;
+  margin: 0 auto;
+}
+
+.footer-block {
+  width: 100%;
+  text-align: left;
+  padding: 0 1em;
+  
+}
+
+
+@media @break-tablet {
+  .footer-block {
+    float: left;
+    width: 25%;
+    
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
 }

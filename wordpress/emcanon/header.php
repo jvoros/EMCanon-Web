@@ -22,29 +22,8 @@
   <body>    
     
     <div id="wrap">
-      
-      <nav id="menu">
-        <a href="<? bloginfo('url'); ?>"><img id="menu-logo" src="<? bloginfo('template_url'); ?>/img/logo-white.svg" /></a>
-        <ul id="spymenu">
-          <li id="homelink"><a href="<? bloginfo('url'); ?>">HOME</a></li>
-          <? $url = get_site_url(); ?>
-          <li><a href="<?= $url ?>#latest">latest</a></li>
-          <?            
-            $tags = get_terms('canon_tags');
-            if ($tags && !is_wp_error($tags)) {
-              foreach ($tags as $tag) {
-                echo "<li><a href='$url#$tag->name'>$tag->name</a></li>";
-              }
-            }
-          ?>
-<!--          <li><a href="#">About Us</a></li>-->
-        </ul>
-        <div class="tagline">A collection of the most important <br>papers in <br><strong>Emergency Medicine</strong></div>
-      </nav>
 
       <div id="header">
         <a id="menu-toggle"><i class="icon-menu"></i></a>
-        <img src="<? bloginfo('template_url'); ?>/img/logo-white.svg" alt="EMCanon" />
+        <a href="<? bloginfo('url'); ?>"><img id="header-logo" src="<? bloginfo('template_url'); ?>/img/logo-white.svg" /></a>
       </div>
-
-      <div id="content">

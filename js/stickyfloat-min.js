@@ -1,0 +1,22 @@
+/**
+ * stickyfloat - jQuery plugin for verticaly floating anything in a constrained area
+ *
+ * @author          Yair Even-Or (vsync)
+ * @copyright       Copyright (c) 2013
+ * @license         MIT and GPL licenses.
+ * @link            http://dropthebit.com
+ * @version         Version 8.5
+ * @parameters      duration        (number, 200)    - the duration of the animation
+                    startOffset     (number)         - the amount of scroll offset after the animations kicks in
+                    offsetY         (number)         - the offset from the top when the object is animated
+                    lockBottom      (boolean, true)  - set to false if you don't want your floating box to stop at parent's bottom
+                    delay           (number, 0)      - delay in milliseconds  until the animnations starts
+                    easing          (string, linear) - easing function (jQuery has by default only 'swing' & 'linear')
+                    stickToBottom   (boolean, false) - to make the element stick to the bottom instead to the top
+					onReposition    (function)       - a callback to be invoked when the floated element is repositioned
+					scrollArea      (DOM element, window) - The element which stickyfloat should track it's scroll position (for situations with inner scroll)
+
+   @example         Example: jQuery('#menu').stickyfloat({duration: 400});
+ *
+ **/
+!function($){"use strict";function t(t){var s=t.parent(),e=parseInt(s.css("padding-bottom")),i=parseInt(s.css("padding-top")),o=s.offset().top;return{startOffset:o,offsetBottom:e,offsetY:i}}var s=window,e=document,i,o,n={scrollArea:s,duration:200,lockBottom:!0,delay:0,easing:"linear",stickToBottom:!1,cssTransition:!1},r=function(){var t,s=e.createElement("p").style,i=["ms","O","Moz","Webkit"],o="transition";if(""==s[o])return!0;for(o=o.charAt(0).toUpperCase()+o.slice(1),t=i.length;t--;)if(""==s[i[t]+o])return!0;return!1}(),f=function(t,s){this.settings=t,this.obj=$(s)};f.prototype={init:function(){if(this.obj.data("_stickyfloat"))return!1;var t=this,e=s.requestAnimationFrame||s.webkitRequestAnimationFrame||s.mozRequestAnimationFrame||s.msRequestAnimationFrame||function(t){return s.setTimeout(t,1e3/60)};$(s).ready(function(){t.rePosition(!0),$(t.settings.scrollArea).on("scroll.sticky",function(){e($.proxy(t.rePosition,t))}),$(s).on("resize.sticky",function(){e(t.rePosition.bind(t))})}),this.obj.data("_stickyfloat",t)},rePosition:function(t,o){var n=this.obj,f=this.settings,a,c,h,l=t===!0?0:f.duration,u=this.settings.scrollArea==s?s.scrollY?s.scrollY:e.documentElement.scrollTop:this.settings.scrollArea.scrollTop,p=this.settings.scrollArea==s?e.documentElement.offsetHeight:this.settings.scrollArea.offsetHeight;this.areaViewportHeight=this.settings.scrollArea==s?e.documentElement.clientHeight:this.settings.scrollArea.clientHeight,this.stickyHeight=n[0].clientHeight,n.stop(),f.lockBottom&&(i=n[0].parentNode.clientHeight-this.stickyHeight-f.offsetBottom),0>i&&(i=0),h=u>f.startOffset,c=n.offset().top>f.startOffset+f.offsetY,a=this.stickyHeight>this.areaViewportHeight,((h||c)&&!a||o)&&(this.newpos=f.stickToBottom?u+p-this.stickyHeight-f.startOffset-f.offsetY:u-f.startOffset+f.offsetY,this.newpos>i&&f.lockBottom&&(this.newpos=i),this.newpos<f.offsetY?this.newpos=f.offsetY:u<f.startOffset&&!f.stickToBottom&&(this.newpos=f.offsetY),5>l||f.cssTransition&&r?n[0].style.top=this.newpos+"px":n.stop().delay(f.delay).animate({top:this.newpos},l,f.easing),this.settings.onReposition&&this.settings.onReposition(this))},update:function(s){return"object"==typeof s&&(s.offsetY&&"auto"!=s.offsetY||(s.offsetY=t(this.obj).offsetY),s.startOffset&&"auto"!=s.startOffset||(s.startOffset=t(this.obj).startOffset),this.settings=$.extend({},this.settings,s),this.rePosition(!1,!0)),this.obj},destroy:function(){return $(that.settings.scrollArea).off("scroll.sticky"),$(s).off("resize.sticky"),this.obj.removeData(),this.obj}},$.fn.stickyfloat=function(s,e){return this.each(function(){var i=$(this);if("undefined"==typeof document.body.style.maxHeight)return!1;if("object"==typeof s)e=s;else if("string"==typeof s){if(i.data("_stickyfloat")&&"function"==typeof i.data("_stickyfloat")[s]){var o=i.data("_stickyfloat");return o[s](e)}return this}var r=$.extend({},n,t(i),e||{}),o=new f(r,i);o.init()})}}(jQuery);
